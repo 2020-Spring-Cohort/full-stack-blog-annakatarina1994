@@ -1,5 +1,6 @@
 package org.wcci.blog;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Post {
@@ -8,17 +9,18 @@ public class Post {
     private String author;
     private String category;
     private String tag;
-    private Date date;
+    private LocalDateTime date;
+    private Long id;
 
-
-    public Post(String title, String body, String author, String category, String tag, Date date) {
+    public Post(String title, String body, String author, String category, String tag, Long id, LocalDateTime date) {
         this.title = title;
         this.body = body;
         this.author = author;
         this.category = category;
         this.tag = tag;
+        this.id = id;
         this.date = date;
-        
+
     }
     public String getTitle() {
         return title;
@@ -40,7 +42,11 @@ public class Post {
         return tag;
     }
 
-    public Date getDate() {
+    public Long getId() {
+        return id;
+    }
+
+    public LocalDateTime getDate() {
         return date;
     }
 }
