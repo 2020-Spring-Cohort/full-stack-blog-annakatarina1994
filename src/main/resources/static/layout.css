@@ -1,0 +1,24 @@
+*{
+    margin: 0px;
+    padding: 2rem;
+}
+
+.MainPage{
+    text-align: center;
+}
+
+#MainPageTitle{
+    font-family: 'Krona One',  'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 3rem;
+}
+
+.MainPageNav{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.h2{
+    flex-grow: 1;
+}
