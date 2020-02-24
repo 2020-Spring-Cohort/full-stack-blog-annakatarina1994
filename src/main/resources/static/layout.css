@@ -3,13 +3,8 @@
     padding: 2rem;
 }
 
-.MainPage{
-    text-align: center;
-}
-
 #MainPageTitle{
-    font-family: 'Krona One',  'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 3rem;
+    padding-left: 8rem;
 }
 
 .MainPageNav{
