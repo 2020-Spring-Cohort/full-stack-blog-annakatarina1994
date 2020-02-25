@@ -1,0 +1,33 @@
+*{
+    margin: 0px;
+    padding: 1rem;
+}
+
+.body{
+    margin: 0px;
+    padding: 0px;
+}
+
+.MainPage{
+    margin: 0px;
+    padding: 0px;
+}
+
+#MainPageTitle{
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    flex-direction:column;
+    align-items: flex-start;
+}
+
+.MainPageNav{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex-wrap: nowrap;
+}
+
+.MainPageButtons{
+    width: 5rem;
+}
