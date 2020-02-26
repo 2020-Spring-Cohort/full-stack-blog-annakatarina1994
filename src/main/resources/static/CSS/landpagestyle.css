@@ -2,7 +2,7 @@ body{
     background-image: url(./DB9Headlight.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: left;
+    position: fixed;
 }
 
 #MainPageTitle{
@@ -19,6 +19,26 @@ body{
 }
 
 .MainPageButtons{
-    background-color: rgb(70, 17, 83);
+    border-radius: 5px;
+    border-style: groove;
+    background-color: rgb(74, 79, 90);
+}
+
+.MainPageNav a:link{
+    text-decoration: none;
+    color: rgb(227, 236, 255);
+}
+
+.MainPageNav a:visited{
+    text-decoration: none;
+}
+
+.MainPageNav a:hover{
+    text-decoration: none;
+}
+
+.MainPageNav a:active{
+    text-decoration: none;
+    color: rgb(227, 236, 255);
 }
 
