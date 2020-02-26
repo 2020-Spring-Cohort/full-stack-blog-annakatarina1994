@@ -1,34 +1,5 @@
-*{
-    margin: 0px;
-    padding: 1rem;
-}
-
-.body{
-    margin: 0px;
-    padding: 0px;
-}
-
-.MainPage{
-    margin: 0px;
-    padding: 0px;
-}
-
-#MainPageTitle{
-    margin: 0px;
-    padding: 0px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.MainPageNav{
-    width: 5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    flex-wrap: nowrap;
-}
-
-.MainPageButtons{
-    width: 5rem;
+.CategoryTitle{
+    display: block;
+    width: 100%;
+    text-align: center;
 }
