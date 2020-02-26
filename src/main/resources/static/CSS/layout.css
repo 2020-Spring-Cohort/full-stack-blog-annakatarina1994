@@ -14,29 +14,21 @@
 }
 
 #MainPageTitle{
-    box-sizing: border-box;
-    width: 18rem;
+    margin: 0px;
     padding: 0px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-} 
+}
 
 .MainPageNav{
-    box-sizing: border-box;
-    width: 13rem;
+    width: 5rem;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     flex-wrap: nowrap;
-    position: fixed;
-    right: 3rem;
-    top: 5rem;
-    
 }
 
 .MainPageButtons{
-    text-align: center;
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
+    width: 5rem;
 }
