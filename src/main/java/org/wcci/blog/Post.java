@@ -1,6 +1,5 @@
 package org.wcci.blog;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
@@ -14,19 +13,17 @@ public class Post {
     private String title;
     private String body;
     private String author;
-    private String category;
+    private String categoryName;
     private String tag;
-    private LocalDateTime date;
+//    private LocalDateTime date;
 
-    public Post(String title, String body, String author, String category, String tag, Long id, LocalDateTime date) {
+    public Post(String title, String body, String author, String categoryName, String tag) {
         this.title = title;
         this.body = body;
         this.author = author;
-        this.category = category;
+        this.categoryName = categoryName;
         this.tag = tag;
-        this.id = id;
-        this.date = date;
-
+//        this.date = LocalDateTime.now();
     }
     public String getTitle() {
         return title;
@@ -40,8 +37,8 @@ public class Post {
         return author;
     }
 
-    public String getCategory() {
-        return category;
+    public String getCategoryName() {
+        return categoryName;
     }
 
     public String getTag() {
@@ -52,7 +49,7 @@ public class Post {
         return id;
     }
 
-    public LocalDateTime getDate() {
-        return date;
-    }
+//    public LocalDateTime getDate() {
+//        return date;
+//    }
 }

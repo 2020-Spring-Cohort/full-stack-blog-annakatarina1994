@@ -1,0 +1,42 @@
+*{
+    margin: 0px;
+    padding: 1rem;
+}
+
+.body{
+    margin: 0px;
+    padding: 0px;
+}
+
+.MainPage{
+    margin: 0px;
+    padding: 0px;
+}
+
+#MainPageTitle{
+    box-sizing: border-box;
+    width: 18rem;
+    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+} 
+
+.MainPageNav{
+    box-sizing: border-box;
+    position: fixed;
+    right: 1rem;
+    top: 2rem;
+    width: 13rem;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;    
+}
+
+.MainPageButtons{
+    text-align: center;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}

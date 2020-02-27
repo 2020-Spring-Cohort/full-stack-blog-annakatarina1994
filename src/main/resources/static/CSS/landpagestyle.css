@@ -1,0 +1,56 @@
+body{
+    background-image: url(./DB9Headlight.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+}
+
+#MainPageTitle{
+    font-family: 'Krona One',  'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 3.5rem;
+    color: white;
+    text-align: initial;
+}
+
+.MainPageNav{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.3rem;
+    font-variant: small-caps;
+}
+
+a:link{
+    text-decoration: none;
+    color:white;
+    border-radius: 5px;
+    border-style: groove;
+    border-color: rgb(26, 44, 83);
+    background-color: rgb(74, 79, 90);
+}
+
+a:visited{
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    border-style: groove;
+    border-color: rgb(26, 44, 83);
+    background-color: rgb(74, 79, 90);
+} 
+
+a:hover{
+    text-decoration: none;
+    color:white;
+    border-radius: 5px;
+    border-style: groove;
+    border-color: rgb(26, 44, 83);
+    background-color:rgb(26, 44, 83);
+}
+
+a:active{
+    text-decoration: none;
+    color:white;
+    border-radius: 5px;
+    border-style: groove;
+    border-color: rgb(26, 44, 83);
+    background-color: rgb(74, 79, 90);
+}
+
