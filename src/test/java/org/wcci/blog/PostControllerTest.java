@@ -6,8 +6,8 @@ import org.springframework.ui.Model;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.verify;
 
 class PostControllerTest {
 
@@ -36,6 +36,11 @@ class PostControllerTest {
     }
 
     @Test
+    public void displayPostInteractsWithDependenciesCorrectly() {
+        underTest.displayPost(1L, model);
+        verify(mockStorage).findPostById(1L);
+        verify(model).addAttribute("post", testPost);
+    }
 
 
 }
