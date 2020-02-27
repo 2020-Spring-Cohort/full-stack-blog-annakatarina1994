@@ -2,6 +2,7 @@ package org.wcci.blog;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -12,7 +13,10 @@ public class PostController {
         this.postStorage = postStorage;
     }
 
-    public String displayPost(Long id, Model model) {
-
+    @RequestMapping("/posts/{id}")
+    public String displayPost(@PathVariable Long id, Model model) {
+        Post gottenPost = postStorage.findPostById(id);
+        model.addAttribute("post", gottenPost);
+        return "post";
     }
 }

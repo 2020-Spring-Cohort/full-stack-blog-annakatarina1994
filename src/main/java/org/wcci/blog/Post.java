@@ -15,7 +15,7 @@ public class Post {
     private String author;
     private String categoryName;
     private String tag;
-//    private LocalDateTime date;
+    private LocalDateTime date;
 
     public Post(String title, String body, String author, String categoryName, String tag) {
         this.title = title;
@@ -23,7 +23,7 @@ public class Post {
         this.author = author;
         this.categoryName = categoryName;
         this.tag = tag;
-//        this.date = LocalDateTime.now();
+        this.date = LocalDateTime.now();
     }
     public String getTitle() {
         return title;
@@ -49,7 +49,7 @@ public class Post {
         return id;
     }
 
-//    public LocalDateTime getDate() {
-//        return date;
-//    }
+    public LocalDateTime getDate() {
+        return date;
+    }
 }
