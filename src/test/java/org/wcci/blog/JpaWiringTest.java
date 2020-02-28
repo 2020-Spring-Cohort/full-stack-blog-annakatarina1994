@@ -42,5 +42,8 @@ public class JpaWiringTest {
         Post gottenPost = postRepo.findById(testPost.getId()).get();
         assertThat(gottenCategory.getPosts()).contains(testPost);
     }
+
+
+
     }
 

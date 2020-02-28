@@ -1,11 +1,12 @@
 package org.wcci.blog;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
 import java.util.Date;
 
-
+@Entity
 public class Post {
     @Id
     @GeneratedValue
@@ -25,6 +26,9 @@ public class Post {
         this.tag = tag;
         this.date = LocalDateTime.now();
     }
+
+    public Post(){}
+
     public String getTitle() {
         return title;
     }

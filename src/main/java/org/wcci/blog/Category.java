@@ -1,12 +1,20 @@
 package org.wcci.blog;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.Collection;
 import java.util.Objects;
 
+@Entity
 public class Category {
+    @Id
+    @GeneratedValue
     private Long id;
     private String categoryName;
     private String categoryDescription;
+    @OneToMany
     private Collection<Post> posts;
 
     public Category(String categoryName) {
