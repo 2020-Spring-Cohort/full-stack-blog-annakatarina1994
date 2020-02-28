@@ -1,10 +1,11 @@
 package org.wcci.blog;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Collection;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Objects;
 
 @Entity
 public class Post {
@@ -13,21 +14,28 @@ public class Post {
     private Long id;
     private String title;
     private String body;
-    private String author;
-    private String categoryName;
-    private String tag;
+    @ManyToOne
+    private Author author;
+    @ManyToOne
+    private Category category;
+    @ManyToMany
+    private Collection<Hashtag> tags;
     private LocalDateTime date;
 
-    public Post(String title, String body, String author, String categoryName, String tag) {
+    public Post(){}
+
+    public Post(String title, Author author, String body, Category category, String test_tag) {
         this.title = title;
         this.body = body;
         this.author = author;
-        this.categoryName = categoryName;
-        this.tag = tag;
+        this.category = category;
+        this.tags = new HashSet<>();
         this.date = LocalDateTime.now();
     }
 
-    public Post(){}
+    public Long getId() {
+        return id;
+    }
 
     public String getTitle() {
         return title;
@@ -37,23 +45,51 @@ public class Post {
         return body;
     }
 
-    public String getAuthor() {
+    public Author getAuthor() {
         return author;
     }
 
-    public String getCategoryName() {
-        return categoryName;
+    public Category getCategory() {
+        return category;
     }
 
-    public String getTag() {
-        return tag;
-    }
-
-    public Long getId() {
-        return id;
+    public Collection<Hashtag> getTags() {
+        return tags;
     }
 
     public LocalDateTime getDate() {
         return date;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Post post = (Post) o;
+        return Objects.equals(id, post.id) &&
+                Objects.equals(title, post.title) &&
+                Objects.equals(body, post.body) &&
+                Objects.equals(author, post.author) &&
+                Objects.equals(category, post.category);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, body, author, category);
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", body='" + body + '\'' +
+                ", author=" + author +
+                ", category=" + category +
+                '}';
+    }
+
+    public void addHashtag(Hashtag hashtagToAdd) {
+        tags.add(hashtagToAdd);
     }
 }

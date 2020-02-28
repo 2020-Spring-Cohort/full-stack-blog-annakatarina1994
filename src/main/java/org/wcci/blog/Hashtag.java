@@ -5,20 +5,21 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import java.util.Collection;
+import java.util.Objects;
 
 @Entity
 public class Hashtag {
-    private String tag;
+    private String name;
     @Id
     @GeneratedValue
     private Long id;
-    @ManyToMany
+    @ManyToMany(mappedBy = "tags")
     private Collection<Post> posts;
 
     public Hashtag(){}
 
-    public String getTag() {
-        return tag;
+    public String getName() {
+        return name;
     }
 
     public Long getId() {
@@ -29,7 +30,21 @@ public class Hashtag {
         return posts;
     }
 
-    public Hashtag(String tag) {
-        this.tag = tag;
+    public Hashtag(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Hashtag hashtag = (Hashtag) o;
+        return Objects.equals(name, hashtag.name) &&
+                Objects.equals(id, hashtag.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, id);
     }
 }

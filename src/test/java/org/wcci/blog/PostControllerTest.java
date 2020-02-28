@@ -30,7 +30,7 @@ class PostControllerTest {
 
         Category testCategory = new Category("coupe");
         Author testAuthor = new Author("Arthur");
-        testPost = new Post("Title", "Body", "Arthur", "coupe", "smol");
+        testPost = new Post("Title", testAuthor, "Arthur", testCategory, "smol");
         when(mockStorage.findPostById(5L)).thenReturn(testPost);
     }
 
