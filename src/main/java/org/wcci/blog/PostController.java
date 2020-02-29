@@ -11,6 +11,7 @@ public class PostController {
 
     public PostController(PostStorage postStorage, HashtagRepository hashtagRepo) {
         this.postStorage = postStorage;
+
     }
 
     @RequestMapping("/posts/{id}")

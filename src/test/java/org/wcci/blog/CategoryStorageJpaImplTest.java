@@ -32,9 +32,9 @@ public class CategoryStorageJpaImplTest {
         underTest.storeCategory(testCategory2);
 
         Optional<Category> testCategory1Optional = Optional.of(testCategory1);
-        when(mockCategoryRepo.findByCategoryName("Test Category")).thenReturn(testCategory1Optional);
+        when(mockCategoryRepo.findByName("Test Category")).thenReturn(testCategory1Optional);
         Optional<Category> testCategory2Optional = Optional.of(testCategory2);
-        when(mockCategoryRepo.findByCategoryName("Another Category Name")).thenReturn(testCategory2Optional);
+        when(mockCategoryRepo.findByName("Another Category Name")).thenReturn(testCategory2Optional);
 
         Category gottenCategory1 = underTest.findCategoryByName("Test Category");
         Category gottenCategory2 = underTest.findCategoryByName("Another Category Name");

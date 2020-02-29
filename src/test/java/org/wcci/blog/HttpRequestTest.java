@@ -8,6 +8,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.annotation.DirtiesContext;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -39,7 +40,7 @@ public class HttpRequestTest {
     @Test
     public void specificEndPointReturnsOK() {
         ResponseEntity<String> response = testRestTemplate.getForEntity(
-                "http://localhost:" + port + "/campuses/" + testCategory.getName(), String.class);
+                "http://localhost:" + port + "/categories/" + testCategory.getName(), String.class);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
 }

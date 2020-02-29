@@ -23,7 +23,7 @@ public class CategoryStorageJpaImpl implements CategoryStorage {
     }
 
     @Override
-    public Category findCategoryByName(String categoryName) {
-        return categoryRepo.findByCategoryName(categoryName).get();
+    public Category findCategoryByName(String name) {
+        return categoryRepo.findByName(name).get();
     }
 }

@@ -24,7 +24,7 @@ public class Post {
 
     public Post(){}
 
-    public Post(String title, Author author, String body, Category category, String test_tag) {
+    public Post(String title, Author author, String body, Category category) {
         this.title = title;
         this.body = body;
         this.author = author;

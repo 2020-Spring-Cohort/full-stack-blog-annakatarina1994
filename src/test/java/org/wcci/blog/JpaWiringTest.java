@@ -26,7 +26,7 @@ public class JpaWiringTest {
     public void CategoryShouldHaveAListOfPosts() {
         Category testCategory = new Category("testCategory");
         Author testAuthor = new Author("test name");
-        Post testPost = new Post("Title", testAuthor, "Body", testCategory, "Test tag");
+        Post testPost = new Post("Title", testAuthor, "Body", testCategory);
 
         categoryRepo.save(testCategory);
         postRepo.save(testPost);
@@ -45,7 +45,7 @@ public class JpaWiringTest {
     public void postShouldBeAbleToHaveMultipleHashtags() {
         Author testAuthor1 = authorRepo.save(new Author("Arthur"));
         Category testCategory1 = categoryRepo.save(new Category("Test Category"));
-        Post testPost1 = postRepo.save(new Post("Title", testAuthor1, "body", testCategory1, "test tag"));
+        Post testPost1 = postRepo.save(new Post("Title", testAuthor1, "body", testCategory1));
         Hashtag testHashtag1 = hashtagRepo.save(new Hashtag("Speedy"));
         Hashtag testHashtag2 = hashtagRepo.save(new Hashtag("smol"));
         Hashtag testHashtag3 = hashtagRepo.save(new Hashtag("metal"));
