@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,12 @@
     <title>Category</title>
 </head>
 <body>
+    <h1 th:text="${category.name}">Category Name</h1>
     
+    <li class="PostLinkList" th:each="post:${category.getPosts()}">
+        <a class="PostLinks" th:href="@{'/post/'+ ${post.id}}"
+           th:text="${post.name}"></a>
+    </li>
+
 </body>
 </html>

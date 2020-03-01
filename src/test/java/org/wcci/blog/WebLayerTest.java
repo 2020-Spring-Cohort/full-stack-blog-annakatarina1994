@@ -35,7 +35,7 @@ public class WebLayerTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(view().name("categories"))
-                .andExpect(model().attributeExists("campuses"));
+                .andExpect(model().attributeExists("categories"));
     }
 
 }

@@ -1,11 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    
+    <section class="post">
+        <h2 th:text="${post.title}">Title</h2>
+        <h4 th:text="${post.author}"> Author</h4>
+        <h4 th:text="${post.date}">Date</h4>
+        <p th:text="${post.body}">Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text 
+            Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text 
+            Body text Body text Body text Body text Body text Body text Body text Body text 
+            Body text Body text Body text Body text Body text Body text Body text Body text 
+            Body text Body text Body text Body text Body text Body text Body text Body text Body text Body text 
+            Body text Body text Body text Body text Body text Body text Body text Body text Body text 
+            Body text Body text Body text Body text Body text Body text Body text 
+            Body text Body text Body text Body text Body text Body text Body text Body text Body text 
+            Body text Body text Body text Body text Body text Body text Body text Body text Body text 
+        </p>
+        <h4 th:each="hashtag:${post.tags}" th:text="'#'+${hashtag.name}">#hashtag  #anotherhashtag</h4>
+    </section>
 </body>
 </html>

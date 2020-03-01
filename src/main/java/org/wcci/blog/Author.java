@@ -13,7 +13,7 @@ public class Author {
     @Id
     @GeneratedValue
     private Long id;
-    @OneToMany
+    @OneToMany(mappedBy = "author")
     private Collection<Post> posts;
 
     public Author(){}

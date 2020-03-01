@@ -29,7 +29,7 @@ public class Post {
         this.body = body;
         this.author = author;
         this.category = category;
-        this.tags = new HashSet<>();
+        this.tags = tags;
         this.date = LocalDateTime.now();
     }
 

@@ -7,19 +7,11 @@ import java.util.Collection;
 
 @Service
 public class PostStorageJpaImpl implements PostStorage {
-
-    //need to figure out how to make a findAllPosts() method work
-
     private PostRepository postRepo;
 
     public PostStorageJpaImpl(PostRepository postRepo){
         this.postRepo = postRepo;
     }
-
-//    @Override
-//    public Collection<Post> findAllPosts(Long id) {
-//        return postRepo.findAllPosts();
-//    }
 
     @Override
     public void storePost(Post postToStore) {
@@ -29,5 +21,10 @@ public class PostStorageJpaImpl implements PostStorage {
     @Override
     public Post findPostById(Long id) {
         return postRepo.findById(id).get();
+    }
+
+    @Override
+    public Collection<Post> findAllPosts() {
+        return (Collection<Post>) postRepo.findAll();
     }
 }

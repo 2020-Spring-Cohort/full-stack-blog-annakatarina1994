@@ -13,7 +13,6 @@ public class Category {
     @GeneratedValue
     private Long id;
     private String name;
-    private String description;
     @OneToMany(mappedBy = "category")
     private Collection<Post> posts;
 
@@ -31,10 +30,6 @@ public class Category {
         return name;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
     public Collection<Post> getPosts(){
         return posts;
     }
@@ -45,12 +40,13 @@ public class Category {
         if (o == null || getClass() != o.getClass()) return false;
         Category category = (Category) o;
         return Objects.equals(id, category.id) &&
-                Objects.equals(name, category.name) &&
-                Objects.equals(description, category.description);
+                Objects.equals(name, category.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description);
+        return Objects.hash(id, name);
     }
 }
+
+

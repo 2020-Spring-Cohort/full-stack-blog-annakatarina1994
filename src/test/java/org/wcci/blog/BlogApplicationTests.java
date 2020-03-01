@@ -36,10 +36,10 @@ public class BlogApplicationTests {
     }
 
     @Test
-    public void shouldReceiveOKFromSingleCampusEndpoint() throws Exception {
-        Category testCategory = new Category("Test Category");
-        when(categoryStorage.findCategoryByName("Test Category")).thenReturn(testCategory);
-        mockMvc.perform(get("/categories/Test Category"))
+    public void shouldReceiveOKFromSingleCategoryEndpoint() throws Exception {
+        Category testCategory = new Category("TestCategory");
+        when(categoryStorage.findCategoryByName("TestCategory")).thenReturn(testCategory);
+        mockMvc.perform(get("/categories/TestCategory"))
                 .andExpect(status().isOk());
     }
 }

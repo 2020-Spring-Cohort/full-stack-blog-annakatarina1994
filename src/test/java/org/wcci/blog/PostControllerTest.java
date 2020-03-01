@@ -20,17 +20,18 @@ class PostControllerTest {
     private Model model;
     private PostStorage mockStorage;
     private Post testPost;
-    private HashtagRepository hashtagRepo;
+    private HashtagStorage hashtagStorage;
+    private CategoryStorage categoryStorage;
 
     @BeforeEach
     void setUp(){
         mockStorage = mock(PostStorage.class);
-        underTest = new PostController(mockStorage, hashtagRepo);
+        underTest = new PostController(mockStorage, hashtagStorage, categoryStorage);
         model = mock(Model.class);
 
         Category testCategory = new Category("coupe");
         Author testAuthor = new Author("Arthur");
-        testPost = new Post("Title", testAuthor, "Arthur", testCategory);
+        testPost = new Post("Title", testAuthor, "Body", testCategory);
         when(mockStorage.findPostById(5L)).thenReturn(testPost);
     }
 
@@ -42,6 +43,7 @@ class PostControllerTest {
 
     @Test
     public void displayPostInteractsWithDependenciesCorrectly() {
+        when(mockStorage.findPostById(1L)).thenReturn(testPost);
         underTest.displayPost(1L, model);
         verify(mockStorage).findPostById(1L);
         verify(model).addAttribute("post", testPost);
@@ -49,12 +51,12 @@ class PostControllerTest {
 
     @Test
     public void displayPostMappingIsCorrect() throws Exception{
+        when(mockStorage.findPostById(1L)).thenReturn(testPost);
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(underTest).build();
-        mockMvc.perform(MockMvcRequestBuilders.get("/posts/1"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/post/1"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("post"))
                 .andExpect(model().attributeExists("post"))
                 .andExpect(model().attribute("post", testPost));
     }
-
 }
