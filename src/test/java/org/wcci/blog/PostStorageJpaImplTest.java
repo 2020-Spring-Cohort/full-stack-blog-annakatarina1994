@@ -19,7 +19,7 @@ public class PostStorageJpaImplTest {
         underTest = new PostStorageJpaImpl(postRepo);
         Category testCategory = new Category("Test Category");
         Author testAuthor = new Author("Arthur");
-        testPost = new Post("Title", testAuthor, "Body", testCategory);
+        testPost = new Post("Title", "Body", testCategory);
     }
 
     @Test

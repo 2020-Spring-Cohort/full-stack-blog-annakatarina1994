@@ -1,9 +1,6 @@
 package org.wcci.blog;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -13,7 +10,7 @@ public class Author {
     @Id
     @GeneratedValue
     private Long id;
-    @OneToMany(mappedBy = "author")
+    @ManyToMany(mappedBy = "authors")
     private Collection<Post> posts;
 
     public Author(){}

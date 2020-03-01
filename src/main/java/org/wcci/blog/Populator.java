@@ -59,24 +59,29 @@ public class Populator implements CommandLineRunner {
         Author kyleBravlaski = new Author("Kyle Bravlaski");
         authorStorage.store(kyleBravlaski);
 
-        Post postOne = new Post("Title", stanMarsh, "This is the body of the post. This is the body of the post. This is the body of the post. " +
+        Post postOne = new Post("Title", "This is the body of the post. This is the body of the post. This is the body of the post. " +
                 "This is the body of the post. This is the body of the post. This is the body of the post.", sedan);
+        postOne.addAuthor(stanMarsh);
         postStorage.storePost(postOne);
 
-        Post postTwo = new Post("Another Title", ericCartman, "This is the body of the post. This is the body of the post. This is the body of the post. " +
+        Post postTwo = new Post("Another Title", "This is the body of the post. This is the body of the post. This is the body of the post. " +
                 "This is the body of the post. This is the body of the post. This is the body of the post. This is the body of the post. ", truck);
+        postTwo.addAuthor(ericCartman);
         postStorage.storePost(postTwo);
 
-        Post postThree = new Post("This is Also a Title", wendyTestaburger, "This is the body of the post. This is the body of the post. This is the body of the post. " +
+        Post postThree = new Post("This is Also a Title", "This is the body of the post. This is the body of the post. This is the body of the post. " +
                 "This is the body of the post. This is the body of the post. This is the body of the post.  ", convertible);
+        postThree.addAuthor(wendyTestaburger);
         postStorage.storePost(postThree);
 
-        Post postFour = new Post("This iS NOt a titLe", kennyMccormick, "This is the body of the post. This is the body of the post. This is the body of the post. This is the body of the post. " +
+        Post postFour = new Post("This iS NOt a titLe", "This is the body of the post. This is the body of the post. This is the body of the post. This is the body of the post. " +
                 "This is the body of the post. This is the body of the post. This is the body of the post.  ", sport);
+        postFour.addAuthor(kennyMccormick);
         postStorage.storePost(postFour);
 
-        Post postFive = new Post("OK It's A Title Again", kyleBravlaski, "This is the body of the post. This is the body of the post. This is the body of the post. " +
+        Post postFive = new Post("OK It's A Title Again", "This is the body of the post. This is the body of the post. This is the body of the post. " +
                 "This is the body of the post. This is the body of the post. This is the body of the post. This is the body of the post.", coupe);
+        postFive.addAuthor(kyleBravlaski);
         postStorage.storePost(postFive);
     }
 }

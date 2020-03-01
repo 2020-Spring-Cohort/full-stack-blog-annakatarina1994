@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
 
@@ -31,6 +32,7 @@ public class Hashtag {
     }
 
     public Hashtag(String name) {
+        posts = new ArrayList<>();
         this.name = name;
     }
 

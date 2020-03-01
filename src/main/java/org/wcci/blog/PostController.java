@@ -22,12 +22,6 @@ public class PostController {
         this.authorStorage = authorStorage;
     }
 
-    @RequestMapping("/allposts")
-    public String displayPosts(Model model){
-        model.addAttribute("posts", postStorage.findAllPosts());
-        return "allposts";
-    }
-
     @RequestMapping("/post/{id}")
     public String displayPost(@PathVariable Long id, Model model){
         Post gottenPost = postStorage.findPostById(id);
@@ -39,7 +33,7 @@ public class PostController {
     public String submitPost(@RequestParam String title, @RequestParam String authorName, @RequestParam String body, @RequestParam String categoryName){
         Category category = categoryStorage.findCategoryByName(categoryName);
         Author author = authorStorage.findAuthorByName(authorName);
-        postStorage.storePost(new Post(title, author, body, category));
+        postStorage.storePost(new Post(title, body, category));
         return "redirect:categories";
     }
 

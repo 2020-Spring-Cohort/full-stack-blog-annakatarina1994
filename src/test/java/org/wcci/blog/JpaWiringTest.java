@@ -26,7 +26,7 @@ public class JpaWiringTest {
     public void CategoryShouldHaveAListOfPosts() {
         Category testCategory = new Category("testCategory");
         Author testAuthor = new Author("test name");
-        Post testPost = new Post("Title", testAuthor, "Body", testCategory);
+        Post testPost = new Post("Title", "Body", testCategory);
 
         categoryRepo.save(testCategory);
         postRepo.save(testPost);
@@ -43,9 +43,8 @@ public class JpaWiringTest {
 
     @Test
     public void postShouldBeAbleToHaveMultipleHashtags() {
-        Author testAuthor1 = authorRepo.save(new Author("Arthur"));
         Category testCategory1 = categoryRepo.save(new Category("Test Category"));
-        Post testPost1 = postRepo.save(new Post("Title", testAuthor1, "body", testCategory1));
+        Post testPost1 = postRepo.save(new Post("Title", "body", testCategory1));
         Hashtag testHashtag1 = hashtagRepo.save(new Hashtag("Speedy"));
         Hashtag testHashtag2 = hashtagRepo.save(new Hashtag("smol"));
         Hashtag testHashtag3 = hashtagRepo.save(new Hashtag("metal"));
@@ -62,5 +61,20 @@ public class JpaWiringTest {
 
         assertThat(gottenPost1.getTags()).contains(testHashtag1, testHashtag2, testHashtag3);
     }
+
+//    @Test
+//        public void authorShouldBeAbleToBeAddedToPost() {
+//        Category testCategory2 = categoryRepo.save(new Category("Category"));
+//        Author testAuthor1 = authorRepo.save(new Author("Arthur"));
+//        Post testPost2 = postRepo.save(new Post("Title", "Body", testCategory2));
+//        testPost2.addAuthor(testAuthor1);
+//        postRepo.save(testPost2);
+//
+//        entityManager.flush();
+//        entityManager.clear();
+//
+//        Post gottenPost2 = postRepo.findById(testPost2.getId()).get();
+//        assertThat(gottenPost2.getAuthor()).contains(testAuthor1);
+//    }
 }
 

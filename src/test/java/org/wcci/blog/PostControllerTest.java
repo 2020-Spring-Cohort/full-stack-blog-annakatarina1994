@@ -22,16 +22,17 @@ class PostControllerTest {
     private Post testPost;
     private HashtagStorage hashtagStorage;
     private CategoryStorage categoryStorage;
+    private AuthorStorage authorStorage;
 
     @BeforeEach
     void setUp(){
         mockStorage = mock(PostStorage.class);
-        underTest = new PostController(mockStorage, hashtagStorage, categoryStorage);
+        underTest = new PostController(mockStorage, hashtagStorage, categoryStorage, authorStorage);
         model = mock(Model.class);
 
         Category testCategory = new Category("coupe");
         Author testAuthor = new Author("Arthur");
-        testPost = new Post("Title", testAuthor, "Body", testCategory);
+        testPost = new Post("Title", "Body", testCategory);
         when(mockStorage.findPostById(5L)).thenReturn(testPost);
     }
 
