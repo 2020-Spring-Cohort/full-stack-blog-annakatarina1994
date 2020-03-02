@@ -3,6 +3,7 @@ package org.wcci.blog;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Objects;
 
 @Entity
@@ -25,8 +26,8 @@ public class Post {
     public Post(String name, String body, Category category) {
         this.name = name;
         this.body = body;
-        this.authors = authors;
-        this.tags = tags;
+        this.tags = new HashSet<>();
+        this.authors = new HashSet<>();
         this.category = category;
         this.date = LocalDateTime.now();
     }

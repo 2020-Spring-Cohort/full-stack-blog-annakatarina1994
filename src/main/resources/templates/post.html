@@ -20,7 +20,8 @@
             Body text Body text Body text Body text Body text Body text Body text Body text Body text 
             Body text Body text Body text Body text Body text Body text Body text Body text Body text 
         </p>
-        <h4 th:each="hashtag:${post.tags}" th:text="'#'+${hashtag.name}">#hashtag  #anotherhashtag</h4>
+        <h4 th:text="${hashtag.name"}></h4>
+        <!-- <h4 th:each="hashtag:${post.tags}" th:text="'#'+${hashtag.name}">#hashtag  #anotherhashtag</h4> -->
     </section>
 </body>
 </html>

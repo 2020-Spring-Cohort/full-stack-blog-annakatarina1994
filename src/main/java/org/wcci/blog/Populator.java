@@ -59,9 +59,13 @@ public class Populator implements CommandLineRunner {
         Author kyleBravlaski = new Author("Kyle Bravlaski");
         authorStorage.store(kyleBravlaski);
 
+        Hashtag speedy = new Hashtag("speedy");
+        hashtagStorage.store(speedy);
+
         Post postOne = new Post("Title", "This is the body of the post. This is the body of the post. This is the body of the post. " +
                 "This is the body of the post. This is the body of the post. This is the body of the post.", sedan);
         postOne.addAuthor(stanMarsh);
+        postOne.addHashtag(speedy);
         postStorage.storePost(postOne);
 
         Post postTwo = new Post("Another Title", "This is the body of the post. This is the body of the post. This is the body of the post. " +
