@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Optional;
+
 @Controller
 public class PostController {
 
@@ -14,6 +16,8 @@ public class PostController {
     private CategoryStorage categoryStorage;
     private HashtagStorage hashtagStorage;
     private AuthorStorage authorStorage;
+    private HashtagRepository hashtagRepo;
+    private AuthorRepository authorRepo;
 
     public PostController(PostStorage postStorage, HashtagStorage hashtagStorage, CategoryStorage categoryStorage, AuthorStorage authorStorage) {
         this.postStorage = postStorage;
@@ -37,5 +41,36 @@ public class PostController {
         return "redirect:categories";
     }
 
+    @PostMapping("/post/{id}/add-hashtag")
+    public String addHashtagToPost(@RequestParam String name, @PathVariable Long id){
+        Hashtag hashtagToAddToPost;
+        Optional<Hashtag> hashtagOptional = hashtagRepo.findByName(name);
+        if(hashtagOptional.isEmpty()){
+            hashtagToAddToPost = new Hashtag(name);
+            hashtagRepo.save(hashtagToAddToPost);
+        }else{
+            hashtagToAddToPost = hashtagOptional.get();
+        }
+        Post postToAddHashtagTo = postStorage.findPostById(id);
+        postToAddHashtagTo.addHashtag(hashtagToAddToPost);
+        postStorage.storePost(postToAddHashtagTo);
+        return "redirect:categories";
+    }
+
+    @PostMapping("/post/{id}/add-author")
+    public String addAuthorToPost(@RequestParam String name, @PathVariable Long id){
+        Author authorToAddToPost;
+        Optional<Author> authorOptional = authorRepo.findByName(name);
+        if(authorOptional.isEmpty()){
+            authorToAddToPost = new Author(name);
+            authorRepo.save(authorToAddToPost);
+        }else{
+            authorToAddToPost = authorOptional.get();
+        }
+        Post postToAddAuthorTo = postStorage.findPostById(id);
+        postToAddAuthorTo.addAuthor(authorToAddToPost);
+        postStorage.storePost(postToAddAuthorTo);
+        return "redirect:categories";
+    }
 
 }

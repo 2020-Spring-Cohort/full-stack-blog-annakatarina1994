@@ -10,14 +10,14 @@ import java.util.Objects;
 
 @Entity
 public class Hashtag {
-    private String name;
     @Id
     @GeneratedValue
     private Long id;
+    private String name;
     @ManyToMany(mappedBy = "tags")
     private Collection<Post> posts;
 
-    public Hashtag(){}
+    protected Hashtag(){}
 
     public String getName() {
         return name;

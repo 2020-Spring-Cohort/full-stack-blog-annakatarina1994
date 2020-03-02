@@ -1,19 +1,20 @@
 package org.wcci.blog;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
 
 @Entity
 public class Author {
-    private String name;
     @Id
     @GeneratedValue
     private Long id;
+    private String name;
     @ManyToMany(mappedBy = "authors")
     private Collection<Post> posts;
 
-    public Author(){}
+    protected Author(){}
 
     public String getName() {
         return name;
@@ -28,6 +29,7 @@ public class Author {
     }
 
     public Author(String name) {
+        posts = new ArrayList<>();
         this.name = name;
     }
 

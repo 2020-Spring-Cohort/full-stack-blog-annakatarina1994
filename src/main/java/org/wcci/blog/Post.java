@@ -44,7 +44,7 @@ public class Post {
         return body;
     }
 
-    public Collection<Author> getAuthor() {
+    public Collection<Author> getAuthors() {
         return authors;
     }
 

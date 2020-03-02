@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,10 @@
     <title>Hashtags</title>
 </head>
 <body>
-    <h1>Find Posts By Their Hashtags</h1>
+    <h1 class="HashtagTitle">Find Posts By Their Hashtags</h1>
+    
+        <p class="CarHashtags" th:each="hashtags:${hashtags}">
+            <a th:href="@{'/hashtags/' + ${hashtag.name}}" th:text="${hashtag.name}">Category</a>
+        </p>
 </body>
 </html>

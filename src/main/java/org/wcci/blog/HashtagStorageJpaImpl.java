@@ -13,13 +13,13 @@ public class HashtagStorageJpaImpl implements HashtagStorage {
     }
 
     @Override
-    public Collection<Hashtag> findAllHashtags() {
-        return (Collection<Hashtag>) hashtagRepo.findAll();
+    public void store(Hashtag hashtagToStore) {
+        hashtagRepo.save(hashtagToStore);
     }
 
     @Override
-    public void store(Hashtag hashtagToStore) {
-        hashtagRepo.save(hashtagToStore);
+    public Collection<Hashtag> findAllHashtags() {
+        return (Collection<Hashtag>) hashtagRepo.findAll();
     }
 
     @Override
